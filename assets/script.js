@@ -5,7 +5,6 @@ var score = 0;
 var response = document.getElementById("response");
 
 function displayQuestion() {
-  startTimer();
   document.getElementById("generate").style.display = "none";
   document.getElementById("rules").style.display = "none";
 
@@ -17,14 +16,12 @@ document.getElementById("generate").addEventListener("click", displayQuestion);
 
 //hello testing 123
 
-
-
-/// call cat api 
+/// call cat api
 function ajax_get(url, callback) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      console.log('responseText:' + xmlhttp.responseText);
+      console.log("responseText:" + xmlhttp.responseText);
       try {
         var data = JSON.parse(xmlhttp.responseText);
       } catch (err) {
@@ -39,29 +36,32 @@ function ajax_get(url, callback) {
   xmlhttp.send();
 }
 
-ajax_get('https://api.thecatapi.com/v1/images/search?size=full', function (data) {
-  document.getElementById("id").innerHTML = data[0]["id"];
-  document.getElementById("url").innerHTML = data[0]["url"];
+ajax_get(
+  "https://api.thecatapi.com/v1/images/search?size=full",
+  function (data) {
+    document.getElementById("id").innerHTML = data[0]["id"];
+    document.getElementById("url").innerHTML = data[0]["url"];
 
-  var html = '<img src="' + data[0]["url"] + '">';
-  document.getElementById("image").innerHTML = html;
-});
+    var html = '<img src="' + data[0]["url"] + '">';
+    document.getElementById("image").innerHTML = html;
+  }
+);
 
 ////////dog api
 
-const BREEDS_URL = 'https://dog.ceo/api/breeds/list/all';
+const BREEDS_URL = "https://dog.ceo/api/breeds/list/all";
 
-const select = document.querySelector('.breeds');
+const select = document.querySelector(".breeds");
 
 fetch(BREEDS_URL)
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(data => {
+  .then((data) => {
     const breedsObject = data.message;
     const breedsArray = Object.keys(breedsObject);
     for (let i = 0; i < breedsArray.length; i++) {
-      const option = document.createElement('option');
+      const option = document.createElement("option");
       option.value = breedsArray[i];
       option.innerText = breedsArray[i];
       select.appendChild(option);
@@ -69,27 +69,27 @@ fetch(BREEDS_URL)
     console.log(breedsArray);
   });
 
-select.addEventListener('change', event => {
+select.addEventListener("change", (event) => {
   let url = `https://dog.ceo/api/breed/${event.target.value}/images/random`;
   getDoggo(url);
 });
 
-const img = document.querySelector('.dog-img');
-const spinner = document.querySelector('.spinner');
+const img = document.querySelector(".dog-img");
+const spinner = document.querySelector(".spinner");
 
-const getDoggo = url => {
-  spinner.classList.add('show');
-  img.classList.remove('show');
+const getDoggo = (url) => {
+  spinner.classList.add("show");
+  img.classList.remove("show");
   fetch(url)
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(data => {
+    .then((data) => {
       img.src = data.message;
     });
 };
 
-img.addEventListener('load', () => {
-  spinner.classList.remove('show');
-  img.classList.add('show');
+img.addEventListener("load", () => {
+  spinner.classList.remove("show");
+  img.classList.add("show");
 });
