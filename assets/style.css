@@ -6,7 +6,9 @@
   font-family: sans-serif;
   text-align: center;
 }
-
+.cats {
+  float: left;
+}
 html,
 body,
 .wrapper,
