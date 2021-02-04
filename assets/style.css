@@ -8,7 +8,15 @@
 }
 .cats {
   float: left;
+  height: 300px;
+  width: 300px;
 }
+.dogs {
+ float: right;
+ height: 300px;
+ width: 300px;
+}
+
 html,
 body,
 .wrapper,
