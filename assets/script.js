@@ -1,95 +1,97 @@
-var ans1 = document.getElementById("ans1");
-var ans2 = document.getElementById("ans2");
-var score = 0;
 
-var response = document.getElementById("response");
 
-function displayQuestion() {
-  document.getElementById("generate").style.display = "none";
-  document.getElementById("rules").style.display = "none";
 
-  ans1.style.display = "block";
-  ans2.style.display = "block";
-}
+$(document).ready(function () {
 
-document.getElementById("generate").addEventListener("click", displayQuestion);
 
-//hello testing 123
 
-/// call cat api
-function ajax_get(url, callback) {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      console.log("responseText:" + xmlhttp.responseText);
-      try {
-        var data = JSON.parse(xmlhttp.responseText);
-      } catch (err) {
-        console.log(err.message + " in " + xmlhttp.responseText);
-        return;
-      }
-      callback(data);
-    }
-  };
+  var ans1 = document.getElementById("ans1");
+  var ans2 = document.getElementById("ans2");
+  var score = 0;
 
-  xmlhttp.open("GET", url, true);
-  xmlhttp.send();
-}
+  var response = document.getElementById("response");
 
-ajax_get(
-  "https://api.thecatapi.com/v1/images/search?size=full",
-  function (data) {
-    document.getElementById("id").innerHTML = data[0]["id"];
-    document.getElementById("url").innerHTML = data[0]["url"];
+  function displayQuestion() {
+    document.getElementById("generate").style.display = "none";
+    document.getElementById("rules").style.display = "none";
 
-    var html = '<img src="' + data[0]["url"] + '">';
-    document.getElementById("image").innerHTML = html;
+    ans1.style.display = "block";
+    ans2.style.display = "block";
   }
-);
 
-////////dog api
+  document.getElementById("generate").addEventListener("click", displayQuestion);
 
-const BREEDS_URL = "https://dog.ceo/api/breeds/list/all";
 
-const select = document.querySelector(".breeds");
 
-fetch(BREEDS_URL)
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => {
-    const breedsObject = data.message;
-    const breedsArray = Object.keys(breedsObject);
-    for (let i = 0; i < breedsArray.length; i++) {
-      const option = document.createElement("option");
-      option.value = breedsArray[i];
-      option.innerText = breedsArray[i];
-      select.appendChild(option);
+
+
+
+  /// call cat api
+  function ajax_get(url, callback) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log("responseText:" + xmlhttp.responseText);
+        try {
+          var data = JSON.parse(xmlhttp.responseText);
+        } catch (err) {
+          console.log(err.message + " in " + xmlhttp.responseText);
+          return;
+        }
+        callback(data);
+      }
+    };
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  }
+
+  ajax_get(
+    "https://api.thecatapi.com/v1/images/search?size=full",
+    function (data) {
+
+      var html = '<img src="' + data[0]["url"] + '">';
+      document.getElementById("image").innerHTML = html;
     }
-    console.log(breedsArray);
-  });
+  );
 
-select.addEventListener("change", (event) => {
-  let url = `https://dog.ceo/api/breed/${event.target.value}/images/random`;
-  getDoggo(url);
-});
+  ////////dog api
+  //fetches a random dog from api
 
-const img = document.querySelector(".dog-img");
-const spinner = document.querySelector(".spinner");
+  const imageRandom = document.getElementById("imageRandom");
 
-const getDoggo = (url) => {
-  spinner.classList.add("show");
-  img.classList.remove("show");
-  fetch(url)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      img.src = data.message;
-    });
-};
+  function getRandomImage() {
+    const randomImageApiUrl = "https://dog.ceo/api/breeds/image/random";
 
-img.addEventListener("load", () => {
-  spinner.classList.remove("show");
-  img.classList.add("show");
+    // we are using fetch api to make rest api calls. you can use axios use.
+    // we are also using promises here. 
+    fetch(randomImageApiUrl)
+      .then(function (response) {
+        // we get raw response. need to first convert it into json format so we can use the data easily
+        return response.json();
+      })
+      .then(function (json) {
+        // now we got the json . we can use this to update any data in html  json item in console
+        console.log(json);
+        var imageUrl = json.message;
+        ///alert(imageUrl);
+        //update the image
+        var img = document.createElement('img');
+        img.src = imageUrl
+        var image = new Image();
+        image.src = imageUrl;
+        $('#thisdog').append(image);
+
+
+
+
+      })
+      .catch(function (error) {
+        // if any error occurs read console
+        console.log(error);
+
+      });
+  }
+
+  getRandomImage();
 });
