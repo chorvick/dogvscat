@@ -11,9 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
-  <!-- <link rel="stylesheet" href="assets/style.css" /> -->
-  <link rel="stylesheet" href="assets/style2.css" />
-  
+  <link rel="stylesheet" href="assets/style.css" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -22,7 +20,7 @@
 </head>
 
 <body>
-  <h1 class="header">Dog vs. Cat</h1>
+  <h1 class="header1">Dog vs. Cat</h1>
   <div class="card">
     <!--what questions are we asking???  for openers, should probably just be pick the picture you like the bests --->
 
@@ -30,7 +28,7 @@
 
       <!--im not sure exactly what quiz this is or what rules there will be 
       need to round this out i think  -->
-      <h2 id="question">Rules of The Quiz</h2>
+      <h2 hidden id="question">Rules of The Quiz</h2>
     </div>
     <main>
       <!--hidden for now-->
@@ -41,31 +39,31 @@
       <div class="container">
         <header>
           <h1></h1>
-          <div class= "images">
-          <div id="thisdog" style='float: left;'>
-            <img hidden id="thisdog" />
+          <div class="images">
+            <div id="thisdog" style='float: left;'>
+              <img hidden id="thisdog" />
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="thiscat">
+              <div hidden class="cats" id="id"></div>
+
+              <div class="cats" id="image"></div>
+
+              <div class="cats" id="image" style="float: left"></div>
+            </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="thiscat">
-          <div class="cats" id="id"></div>
-          <div class="cats" id="url"></div>
-          <div class="cats" id="image" ></div>
-          <select class="breeds"></select>
-          <div class="cats" id="image" style="float: left" ></div>
-        </div>
-        </div>
         </header>
         <div id="answer-btn" class="btn-grid">
           <button id="ans1" class="btn" style="display: none">Answer</button>
@@ -78,7 +76,7 @@
       <button id="generate" class="btn"></button>
     </div>
     <p id="response"></p>
-  </div> 
+  </div>
   <!-- new changes
  -->
 
