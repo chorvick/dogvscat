@@ -50,7 +50,7 @@ $(document).ready(function () {
     "https://api.thecatapi.com/v1/images/search?size=full",
     function (data) {
 
-      var html = '<img src="' + data[0]["url"] + '">';
+      var html = '<img src="' + data[0]["url"] + '" width="500" height="600" >';
       document.getElementById("image").innerHTML = html;
     }
   );
