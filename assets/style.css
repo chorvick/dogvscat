@@ -125,13 +125,10 @@ header {
   cursor: default;
   background: #c0c7cf;
 }
-.btn-grid {
+.btn-grid  {
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 5px;
-}
-.float-right {
-  float: right;
 }
 
 @media (max-width: 690px) {
@@ -156,4 +153,9 @@ form {
 
 #characterLength {
   width: 4rem;
+}
+
+.container {
+  display: inline-block;
+  flex-direction: row;
 }
