@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  var ans1 = document.getElementById("ans1");
-  var ans2 = document.getElementById("ans2");
+  var ans1 = document.getElementById("dog-btn");
+  var ans2 = document.getElementById("cat-btn");
   var score = 0;
 
   var response = document.getElementById("response");

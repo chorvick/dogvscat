@@ -50,11 +50,11 @@
 
   <div class="container">
 
-    <div class="columns">
+    
       
     <div class="dog-cat-content">
-      <h1></h1>
-      <div class="images">
+      <h1 class = "animate__backInDown">Choose the picture you think is cuter!</h1>
+      <div class="images columns">
         <div id="thisdog"  class="column is-half">
           <img hidden id="thisdog" width="500" height="600"/>
         </div>
@@ -65,14 +65,14 @@
       </div>
     </div>
     <div id="answer-btn" class="btn-grid">
-      <button id="ans1" class="btn" style="display: none">Answer</button>
-      <button id="ans2" class="btn" style="display: none">Answer</button>
+      <button id="dog-btn" class="btn" style="display: none">Dogs take the win here</button>
+      <button id="cat-btn" class="btn" style="display: none">I prefer this cat</button>
 
     </div>
 
 </main>
-<div class="card-footer">
-  <button id="generate" class="btn"></button>
+<div class="columns">
+  <button hidden id="generate" class="btn start column is-full"> Start</button>
 </div>
 <p id="response"></p>
 </div>
