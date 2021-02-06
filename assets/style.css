@@ -7,14 +7,18 @@
   text-align: center;
 }
 .cats {
-  float: left;
   height: 300px;
   width: 300px;
 }
 .dogs {
- float: right;
- height: 300px;
- width: 300px;
+  float: right;
+  height: 300px;
+  width: 300px;
+}
+
+#thisdog {
+  height: 300px;
+  width: 300px;
 }
 
 html,
