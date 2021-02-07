@@ -1,30 +1,21 @@
-
-
-
 $(document).ready(function () {
-
-
-
-  var ans1 = document.getElementById("ans1");
-  var ans2 = document.getElementById("ans2");
+  var ans1 = document.getElementById("dog-btn");
+  var ans2 = document.getElementById("cat-btn");
   var score = 0;
 
   var response = document.getElementById("response");
 
   function displayQuestion() {
     document.getElementById("generate").style.display = "none";
-    document.getElementById("rules").style.display = "none";
+    // document.getElementById("rules").style.display = "none";
 
     ans1.style.display = "block";
     ans2.style.display = "block";
   }
 
-  document.getElementById("generate").addEventListener("click", displayQuestion);
-
-
-
-
-
+  document
+    .getElementById("generate")
+    .addEventListener("click", displayQuestion);
 
   /// call cat api
   function ajax_get(url, callback) {
@@ -49,7 +40,6 @@ $(document).ready(function () {
   ajax_get(
     "https://api.thecatapi.com/v1/images/search?size=full",
     function (data) {
-
       var html = '<img src="' + data[0]["url"] + '" width="500" height="600" >';
       document.getElementById("image").innerHTML = html;
     }
@@ -64,7 +54,7 @@ $(document).ready(function () {
     const randomImageApiUrl = "https://dog.ceo/api/breeds/image/random";
 
     // we are using fetch api to make rest api calls. you can use axios use.
-    // we are also using promises here. 
+    // we are also using promises here.
     fetch(randomImageApiUrl)
       .then(function (response) {
         // we get raw response. need to first convert it into json format so we can use the data easily
@@ -76,20 +66,15 @@ $(document).ready(function () {
         var imageUrl = json.message;
         ///alert(imageUrl);
         //update the image
-        var img = document.createElement('img');
-        img.src = imageUrl
+        var img = document.createElement("img");
+        img.src = imageUrl;
         var image = new Image();
         image.src = imageUrl;
-        $('#thisdog').append(image);
-
-
-
-
+        $("#thisdog").append(image);
       })
       .catch(function (error) {
         // if any error occurs read console
         console.log(error);
-
       });
   }
 

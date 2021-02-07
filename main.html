@@ -21,88 +21,70 @@
 
 <body>
 
-  <div class ="container-fluid">
+  <div class="container-fluid">
 
     <div class="header" id="questions-container">
       <!--start header-->
       <div class="columns">
 
-          <div class="column is-two-thirds">
-              <figure class="image is-128x128">
-                  <a href="index.html">
-                      <img src="assets/images/dogvcat.png" class="images">
-                  </a>
-              </figure>
-          </div>
+        <div class="column is-two-thirds">
+          <figure class="image is-128x128">
+            <a href="index.html">
+              <img src="assets/images/dogvcat.png" class="images">
+            </a>
+          </figure>
+        </div>
 
-          <div class="column is-one-third" id="link">
-              <a href="main.html">game</a>
-              <a href="contact.html">contact</a>
-              <!-- <a hidden href="about.html">about</a> -->
-          </div>
+        <div class="column is-one-third" id="link">
+          <a href="main.html">game</a>
+          <a href="contact.html">contact</a>
+          <!-- <a hidden href="about.html">about</a> -->
+        </div>
 
       </div>
-  </div>
-  <!--end header-->
+    </div>
+    <!--end header-->
 
 
   </div>
-
-
 
   <div class="container">
 
-    <div class="columns">
-      
+
+
     <div class="dog-cat-content">
-      <h1></h1>
-      <div class="images">
-        <div id="thisdog" style='float: left;'>
-          <img hidden id="thisdog" width="500" height="600"/>
+      <h1 class="animate__animated animate__backInDown">Choose the picture you think is cuter!</h1>
+      <div class="images columns">
+        <div id="thisdog" class="column is-half">
+          <img hidden id="thisdog" width="500" height="600" />
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="thiscat">
-          <div hidden class="cats" id="id"></div>
-
+        <div class="thiscat column is-half">
           <div class="cats" id="image"></div>
-
-          <div class="cats" id="image" style="float: left"></div>
         </div>
       </div>
     </div>
     <div id="answer-btn" class="btn-grid">
-      <button id="ans1" class="btn" style="display: none">Answer</button>
-      <button id="ans2" class="btn" style="display: none">Answer</button>
+      <button id="dog-btn" class="btn" style="display: none">Dogs take the win here</button>
+      <button id="cat-btn" class="btn" style="display: none">I prefer this cat</button>
 
     </div>
 
-</main>
-<div class="card-footer">
-  <button id="generate" class="btn"></button>
-</div>
-<p id="response"></p>
-</div>
-<!-- new changes
+    </main>
+    <div class="columns">
+      <button hidden id="generate" class="btn start column is-full"> Start</button>
+    </div>
+    <p id="response"></p>
+  </div>
+  <!-- new changes
 -->
-</div>
-<!-- i am testing this 1234  -->
-</div>
-</div>
+  </div>
+  <!-- i am testing this 1234  -->
+  </div>
+  </div>
 
 
-</div>
+  </div>
 
 </body>
 
