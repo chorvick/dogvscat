@@ -92,8 +92,20 @@ $(document).ready(function () {
   // document.getElementById("response").addEventListener()
   document.getElementById("dog-btn").addEventListener("click", function () {
     document.getElementById("response").textContent = randI;
+    console.log(image);
+    image = "";
+    $("#thisdog").empty();
+    $("#image").empty();
+    // if (counter < 10; )
+    displayQuestion();
   });
   document.getElementById("cat-btn").addEventListener("click", function () {
     document.getElementById("response").textContent = randI;
+    console.log(image);
+    image = "";
+    $("#image").empty();
+    $("#thisdog").empty();
+    displayQuestion();
+
   });
 });
