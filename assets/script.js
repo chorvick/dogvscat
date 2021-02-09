@@ -4,7 +4,7 @@ $(document).ready(function () {
   var score = 0;
 
   var response = document.getElementById("response");
-
+  var feedback = ["wow, nice!", "Good Choice!!"];
   function displayQuestion() {
     document.getElementById("generate").style.display = "none";
     // document.getElementById("rules").style.display = "none";
@@ -77,4 +77,11 @@ $(document).ready(function () {
         console.log(error);
       });
   }
+  // document.getElementById("response").addEventListener()
+  document.getElementById("dog-btn").addEventListener("click", function () {
+    document.getElementById("response").textContent = feedback[0];
+  });
+  document.getElementById("cat-btn").addEventListener("click", function () {
+    document.getElementById("response").textContent = feedback[1];
+  });
 });
