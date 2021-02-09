@@ -1,21 +1,27 @@
 $(document).ready(function () {
   var ans1 = document.getElementById("dog-btn");
   var ans2 = document.getElementById("cat-btn");
-  var score = 0;
-
+  //var score = 0;
+  var dogScore = 0;
+  var catScore = 0;
   var response = document.getElementById("response");
   var feedback = [
     "Wow, nice!",
     "Good Choice!!",
     "You think so !!",
-    "I agree",
+    "I agree !!",
     "Noooo way !!",
-    "Absolutly !!",
+    "Absolutely !!",
     "Really ???",
     "Awesome",
     "You got it",
   ];
   var randI = feedback[Math.floor(Math.random() * feedback.length)];
+
+
+
+
+
   function displayQuestion() {
     document.getElementById("generate").style.display = "none";
     // document.getElementById("rules").style.display = "none";
@@ -64,12 +70,11 @@ $(document).ready(function () {
     );
     const randomImageApiUrl = "https://dog.ceo/api/breeds/image/random";
 
-    // we are using fetch api to make rest api calls. you can use axios use.
-    // we are also using promises here.
+    // we are using fetch api to make rest api calls.  
 
     fetch(randomImageApiUrl)
       .then(function (response) {
-        // we get raw response. need to first convert it into json format so we can use the data easily
+        // we get raw response. need to first convert it into json  
         return response.json();
       })
       .then(function (json) {
@@ -96,8 +101,10 @@ $(document).ready(function () {
     image = "";
     $("#thisdog").empty();
     $("#image").empty();
-    // if (counter < 10; )
     displayQuestion();
+    randI = feedback[Math.floor(Math.random() * feedback.length)];
+    dogScore++;
+    console.log("dog " + dogScore + " cat " + catScore);
   });
   document.getElementById("cat-btn").addEventListener("click", function () {
     document.getElementById("response").textContent = randI;
@@ -106,6 +113,35 @@ $(document).ready(function () {
     $("#image").empty();
     $("#thisdog").empty();
     displayQuestion();
-
+    randI = feedback[Math.floor(Math.random() * feedback.length)];
+    catScore++;
+    console.log("dog " + dogScore + " cat " + catScore);
   });
+
+
+
+
+
+
+
+
+
+  if (dogScore > catScore) {
+    $("#image").empty();
+    $("#thisdog").empty();
+    document.getElementById("response").textContent = "I can see you are a Dog Person !!";
+  }
+
+  if (catScore > dogScore) {
+    $("#image").empty();
+    $("#thisdog").empty();
+    document.getElementById("response").textContent = "Obviously you are a Cat Person !!";
+  }
+
+
+
+  // alert("end code will go here now");
+
+
+
 });
