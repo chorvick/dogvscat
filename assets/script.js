@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var ans1 = document.getElementById("dog-btn");
   var ans2 = document.getElementById("cat-btn");
-  var score = 0;
+  //var score = 0;
   var dogScore = 0;
   var catScore = 0;
   var response = document.getElementById("response");
@@ -17,6 +17,11 @@ $(document).ready(function () {
     "You got it",
   ];
   var randI = feedback[Math.floor(Math.random() * feedback.length)];
+
+
+
+
+
   function displayQuestion() {
     document.getElementById("generate").style.display = "none";
     // document.getElementById("rules").style.display = "none";
@@ -99,6 +104,7 @@ $(document).ready(function () {
     displayQuestion();
     randI = feedback[Math.floor(Math.random() * feedback.length)];
     dogScore++;
+    console.log("dog " + dogScore + " cat " + catScore);
   });
   document.getElementById("cat-btn").addEventListener("click", function () {
     document.getElementById("response").textContent = randI;
@@ -109,5 +115,33 @@ $(document).ready(function () {
     displayQuestion();
     randI = feedback[Math.floor(Math.random() * feedback.length)];
     catScore++;
+    console.log("dog " + dogScore + " cat " + catScore);
   });
+
+
+
+
+
+
+
+
+
+  if (dogScore > catScore) {
+    $("#image").empty();
+    $("#thisdog").empty();
+    document.getElementById("response").textContent = "I can see you are a Dog Person !!";
+  }
+
+  if (catScore > dogScore) {
+    $("#image").empty();
+    $("#thisdog").empty();
+    document.getElementById("response").textContent = "Obviously you are a Cat Person !!";
+  }
+
+
+
+  // alert("end code will go here now");
+
+
+
 });
