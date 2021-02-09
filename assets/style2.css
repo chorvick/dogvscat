@@ -72,12 +72,11 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-
 }
 
 .btn {
   border: none;
-  background-color:  #f30b42;
+  background-color: #f30b42;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -91,7 +90,7 @@ body {
   cursor: pointer;
 }
 .btn:hover {
-  background-color: rgb(197, 76, 76);  ;
+  background-color: rgb(197, 76, 76);
 }
 
 .button {
@@ -124,19 +123,18 @@ h1 {
   text-align: center;
 }
 #animated-text {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding-top: 7.5%;
 }
 
 #index-image {
- position: fixed;
- width: 450px;
- height: 280px;
-  
+  position: fixed;
+  width: 450px;
+  height: 280px;
 }
 
 #footer-txt {
- text-align: center;
+  text-align: center;
 }
 
 #contact-footer {
@@ -144,4 +142,14 @@ h1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 15px;
   color: #ffffff;
+}
+
+#mainfooter {
+  background-color: #f30b42;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+
+  bottom: 0;
+  width: 100%;
 }
