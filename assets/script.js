@@ -4,7 +4,17 @@ $(document).ready(function () {
   var score = 0;
 
   var response = document.getElementById("response");
-  var feedback = ["Wow, nice!", "Good Choice!!", "You think so !!", "I agree", "Noooo way !!", "Absolutly !!", "Really ???", "Awesome", "You got it"];
+  var feedback = [
+    "Wow, nice!",
+    "Good Choice!!",
+    "You think so !!",
+    "I agree",
+    "Noooo way !!",
+    "Absolutly !!",
+    "Really ???",
+    "Awesome",
+    "You got it",
+  ];
   var randI = feedback[Math.floor(Math.random() * feedback.length)];
   function displayQuestion() {
     document.getElementById("generate").style.display = "none";
@@ -56,6 +66,7 @@ $(document).ready(function () {
 
     // we are using fetch api to make rest api calls. you can use axios use.
     // we are also using promises here.
+
     fetch(randomImageApiUrl)
       .then(function (response) {
         // we get raw response. need to first convert it into json format so we can use the data easily

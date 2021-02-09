@@ -153,3 +153,10 @@ h1 {
   bottom: 0;
   width: 100%;
 }
+
+#response {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+}
