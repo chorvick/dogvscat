@@ -4,7 +4,8 @@ $(document).ready(function () {
   var score = 0;
 
   var response = document.getElementById("response");
-  var feedback = ["wow, nice!", "Good Choice!!"];
+  var feedback = ["Wow, nice!", "Good Choice!!", "You think so !!", "I agree", "Noooo way !!", "Absolutly !!", "Really ???", "Awesome", "You got it"];
+  var randI = feedback[Math.floor(Math.random() * feedback.length)];
   function displayQuestion() {
     document.getElementById("generate").style.display = "none";
     // document.getElementById("rules").style.display = "none";
@@ -79,9 +80,9 @@ $(document).ready(function () {
   }
   // document.getElementById("response").addEventListener()
   document.getElementById("dog-btn").addEventListener("click", function () {
-    document.getElementById("response").textContent = feedback[0];
+    document.getElementById("response").textContent = randI;
   });
   document.getElementById("cat-btn").addEventListener("click", function () {
-    document.getElementById("response").textContent = feedback[1];
+    document.getElementById("response").textContent = randI;
   });
 });
