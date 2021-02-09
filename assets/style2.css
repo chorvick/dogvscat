@@ -72,7 +72,7 @@ body {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color:  #f30b42;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -86,7 +86,7 @@ body {
   cursor: pointer;
 }
 .btn:hover {
-  background-color: rgb(197, 76, 76);
+  background-color: rgb(197, 76, 76);  ;
 }
 
 .button {
@@ -117,4 +117,15 @@ h1 {
 
 #hearfrom {
   text-align: center;
+}
+#animated-text {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-top: 7.5%;
+}
+
+#index-image {
+  height: 270px;
+  width: 270px;
+  align-items: center;
+  
 }
