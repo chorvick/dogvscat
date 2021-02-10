@@ -4,6 +4,8 @@ body {
 
 .header {
   background: #f30b42;
+  height: 150px;
+  width: 100%;
 }
 
 #main-image {
