@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
   <link rel="stylesheet" href="assets/style2.css" />
-
+  <!-- we have three html pages index html is landing, main page is for questions and photo display and end result contact is for contacting the team-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <title>Dog vs. Cat</title>
 </head>
@@ -26,13 +26,14 @@
     <div class="header" id="questions-container">
       <!--start header-->
       <div class="columns">
-
+        <!-- note in bulma classes like colum is-one-third  or two-thirds are how you divide and position things on the page  -->
         <div class="column is-two-thirds">
-         
-            <a href="index.html">
-              <img src="assets/images/dogvcat.png" class="images" height="150" width="250">
-            </a>
-      
+
+          <a href="index.html">
+            <img src="assets/images/dogvcat.png" class="images" height="150" width="250">
+            <!--most styling done on css2 page some inline on html page-->
+          </a>
+
         </div>
 
         <div class="column is-one-third" id="link">
@@ -50,14 +51,15 @@
 
   <div class="container">
 
-
-
+    <!-- note for animations to work they need two classes first class needs to be animate__animated then second is the animation you desire -->
+    <!-- excessive animations are avoided -- we used just enough to entertain-- framework of all 3 pages made with bulma -->
     <div class="dog-cat-content">
       <h1 class="animate__animated animate__backInDown" id="animated-text">Choose the picture you think is cuter!</h1>
       <h1 id='final-message'></h1>
       <div class="images columns">
         <div id="thisdog" class="column is-half">
           <img hidden id="thisdog" width="500" height="600" />
+          <!--hidden divs were left hidden as we built the page up to see what looked best-->
         </div>
 
         <div class="thiscat column is-half">
@@ -77,7 +79,7 @@
     </div>
     <p id="response" class="animate__animated animate__backInLeft"></p>
   </div>
-  <!-- new changes
+  <!-- new changes NOTE FOOTER LEFT OUT OF MAIN PAGE AS NOT NECESSARY 
 
   <footer id="footer">
     <div class="content has-text-centered">

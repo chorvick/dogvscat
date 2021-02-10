@@ -1,10 +1,10 @@
-$(document).ready(function () {
-  var ans1 = document.getElementById("dog-btn");
+$(document).ready(function () {    /// j query ready function 
+  var ans1 = document.getElementById("dog-btn");  /// two buttons here one for cat and one for dog
   var ans2 = document.getElementById("cat-btn");
-  var numberQuestion = 0;
-  var dogScore = 0;
+  var numberQuestion = 0;  //variable keeps track of number of questions posed to user
+  var dogScore = 0;  // two variables keep track of number of times they clicked on dog dogScore and cat catScore
   var catScore = 0;
-  var response = document.getElementById("response");
+  var response = document.getElementById("response");  // an array that gives the user a random answer after they pick a cat or dog
   var feedback = [
     "Wow, nice!",
     "Good Choice!!",
@@ -16,12 +16,12 @@ $(document).ready(function () {
     "Awesome",
     "You got it",
   ];
-  var randI = feedback[Math.floor(Math.random() * feedback.length)];
+  var randI = feedback[Math.floor(Math.random() * feedback.length)];  //  variable to generate the random answer
 
-  function displayQuestion() {
+  function displayQuestion() {   /// function displays the question to user
     document.getElementById("generate").style.display = "none";
     // document.getElementById("rules").style.display = "none";
-    getRandomImage();
+    getRandomImage();  /// calls function to get cat + dog image
     ans1.style.display = "block";
     ans2.style.display = "block";
   }
@@ -66,8 +66,8 @@ $(document).ready(function () {
     );
     const randomImageApiUrl = "https://dog.ceo/api/breeds/image/random";
 
-    // we are using fetch api to make rest api calls.
-
+    // we are using fetch api to make rest api calls.  also note for both cat and dog api's we are calling up a random photo , there is much more 
+    /// information in the dog api which you can see in the console regarding breed ect and other classifications 
     fetch(randomImageApiUrl)
       .then(function (response) {
         // we get raw response. need to first convert it into json
@@ -91,18 +91,18 @@ $(document).ready(function () {
       });
   }
   // document.getElementById("response").addEventListener()
-  document.getElementById("dog-btn").addEventListener("click", function () {
-    document.getElementById("response").textContent = randI;
+  document.getElementById("dog-btn").addEventListener("click", function () {  /// listens for click of dog button or cat button below
+    document.getElementById("response").textContent = randI;  // random generated response from feedback array
     console.log(image);
-    image = "";
-    $("#thisdog").empty();
+    image = "";  //  clear image
+    $("#thisdog").empty();  // dynamically empty the dog image and then the cat image after the user has selected
     $("#image").empty();
-    randI = feedback[Math.floor(Math.random() * feedback.length)];
-    dogScore++;
+    randI = feedback[Math.floor(Math.random() * feedback.length)];  /// makes sure we get a new random reply each time
+    dogScore++;   /// since dog button clicked add one to dog score 
     console.log("dog " + dogScore + " cat " + catScore);
-    numberQuestion++;
+    numberQuestion++;  ////keep track of total number of questions
     console.log("number of questions: " + numberQuestion);
-    if (numberQuestion > 8) {
+    if (numberQuestion > 8) {  ////  if we are on the 9 th question we want it to be the last - clear everything else call new question again
       console.log("you are done!");
       document.getElementById("thisdog").style.display = "none";
       document.getElementById("image").style.display = "none";
@@ -114,8 +114,8 @@ $(document).ready(function () {
       displayQuestion();
     }
   });
-  document.getElementById("cat-btn").addEventListener("click", function () {
-    document.getElementById("response").textContent = randI;
+  document.getElementById("cat-btn").addEventListener("click", function () {  ////this is the cat button -- all operation is identical to dog button
+    document.getElementById("response").textContent = randI; //// except that we increment the catScore on line 124 
     console.log(image);
     image = "";
     $("#image").empty();
@@ -125,7 +125,7 @@ $(document).ready(function () {
     console.log("dog " + dogScore + " cat " + catScore);
     numberQuestion++;
     console.log("number of questions: " + numberQuestion);
-    if (numberQuestion > 8) {
+    if (numberQuestion > 8) {   ////  again if we are on question number 9 we tell user quiz is over , clear everything out , display result by calling that function
       console.log("you are done!");
       document.getElementById("thisdog").style.display = "none";
       document.getElementById("image").style.display = "none";
@@ -137,14 +137,14 @@ $(document).ready(function () {
       displayQuestion();
     }
   });
-  function result() {
-    if (dogScore > catScore) {
+  function result() {  ////  this function is called when the user answered 9 questions - odd number means a tie is impossible 
+    if (dogScore > catScore) {  ///   if their dog score is larger it displays ending mesg. they are a dog person
       document.getElementById("animated-text").style.display = "none";
       $("#final-message").addClass("animate__animated animate__jackInTheBox");
       document.getElementById(
         "final-message"
       ).textContent = `YAY looks like you are done! You are a dog person!!`;
-    } else {
+    } else {////// otherwise they must be a cat person so that message is displayed 
       document.getElementById("animated-text").style.display = "none";
       $("#final-message").addClass("animate__animated animate__jackInTheBox");
       document.getElementById(
@@ -152,5 +152,5 @@ $(document).ready(function () {
       ).textContent = `YAY looks like you are done! You are a cat person!!`;
     }
   }
-  // alert("end code will go here now");
+  // close jquery start below
 });
