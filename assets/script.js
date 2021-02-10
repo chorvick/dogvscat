@@ -139,13 +139,17 @@ $(document).ready(function () {
   });
   function result() {
     if (dogScore > catScore) {
+      document.getElementById("animated-text").style.display = "none";
+      $("#final-message").addClass("animate__animated animate__jackInTheBox");
       document.getElementById(
-        "animated-text"
-      ).textContent = `YAY you are done! Looks like you are a dog person`;
+        "final-message"
+      ).textContent = `YAY looks like you are done! You are a dog person!!`;
     } else {
+      document.getElementById("animated-text").style.display = "none";
+      $("#final-message").addClass("animate__animated animate__jackInTheBox");
       document.getElementById(
-        "animated-text"
-      ).textContent = `YAY you are done! Looks like you are a cat person`;
+        "final-message"
+      ).textContent = `YAY looks like you are done! You are a cat person!!`;
     }
   }
   // alert("end code will go here now");
